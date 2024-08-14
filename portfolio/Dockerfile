@@ -1,4 +1,5 @@
-FROM  eclipse-temurin:17-jdk-alpine
+FROM  openjdk:17
 EXPOSE 8080
-copy target/*.jar app.jar  
-ENTRYPOINT["java","-jar","/app.jar"]
+ARG JAR_FILE=target/spring-boot-docker.jar
+COPY ${JAR_FILE}app.jar
+ENTRYPOINT["java","-jar","/app.jar",]
